@@ -121,7 +121,7 @@ async def download_api(dl):
     else:
         await dl.edit("`Empty information...`")
         return
-    if not re.findall(r'\bhttps?://download.*pixelexperience.*\.org\S+', URL):
+    if not re.findall(r'\bhttps?://cp.*pixelexperience.*\.org\S+', URL):
         await dl.edit("`Invalid information...`")
         return
     driver = await chrome()
