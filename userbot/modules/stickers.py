@@ -236,7 +236,7 @@ async def kang(args):
                 await bot.send_read_acknowledge(conv.chat_id)
 
         await args.edit(f"`yaw ,arigatou gozaimasu`\
-            \nini sticker punya Enako ^_^ [here](t.me/addstickers/{packname})",
+            \nIni koleksi sticker Enako [here](t.me/addstickers/{packname})",
                         parse_mode='md')
 
 
