@@ -82,13 +82,13 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         except GitCommandError as error:
             await event.edit(f'{txt}\n`Here is the error log:\n{error}`')
             return repo.__del__()
-        await event.edit('`Successfully Updated!\n'
-                         'Restarting, please wait...`')
+        await event.edit('`Hore berhasil!\n'
+                         'Enako pergi dulu , Tunggu sebentar yah...`')
 
         if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID, "#UPDATE \n"
-                "Your One4uBot was successfully updated")
+                "Yup , Enako berhasil")
 
     else:
         await event.edit('`[HEROKU]:'
@@ -103,13 +103,13 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    await event.edit('`Successfully Updated!\n'
-                     'Bot is restarting... Wait for a second!`')
+    await event.edit('`Hore berhasil!\n'
+                     'Enako pergi dulu... Tunggu Sebentar yah`')
 
     if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID, "#UPDATE \n"
-                "Your One4uBot was successfully updated")
+                "Yup , Enako berhasil")
 
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
@@ -120,7 +120,7 @@ async def update(event, repo, ups_rem, ac_br):
 @register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    await event.edit("`Checking for updates, please wait....`")
+    await event.edit("`Coba Enako liat...`")
     conf = event.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
@@ -173,7 +173,7 @@ async def upstream(event):
         return repo.__del__()
 
     if conf is None and force_update is False:
-        changelog_str = f'**New UPDATE available for [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`'
+        changelog_str = f'**ssstt Ada yang baru [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`'
         if len(changelog_str) > 4096:
             await event.edit("`Changelog is too big, view the file to see it.`")
             file = open("output.txt", "w+")
@@ -193,7 +193,7 @@ async def upstream(event):
         await event.edit(
             '`Force-Syncing to latest stable userbot code, please wait...`')
     else:
-        await event.edit('`Updating One4uBot, please wait....`')
+        await event.edit('`Sebentar , Enako coba`')
     if conf == "now":
         await update(event, repo, ups_rem, ac_br)
     elif conf == "deploy":
